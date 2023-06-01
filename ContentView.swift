@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//reqs 2+3: homepage w schedule AND ability to edit
 struct ContentView: View {
     @State private var showIntroduction = true
 
@@ -106,7 +106,7 @@ struct ContentView: View {
                                         .foregroundColor(.white)
                                     
                                     Button(action: {
-                                        // Action to perform when the button is tapped
+                              
                                         print("Update button tapped for hour \(index + 1)")
                                         showPopup = true
                                         popupIndex = index
@@ -123,7 +123,7 @@ struct ContentView: View {
                                 .padding(.bottom, 20)
                             }
                             
-                            Spacer() // Add empty space at the bottom of the view
+                            Spacer() 
                                 .frame(height: 200) // Adjust the height as needed
                         }
                         .padding(.horizontal)
@@ -139,7 +139,7 @@ struct ContentView: View {
                     TextField("Additional Notes", text: $popupNotes)
                     
                     Button(action: {
-                        // Action to perform when the save button is tapped
+                        //  save button is tapped
                         classInfo[popupIndex] = popupClass
                         teacherInfo[popupIndex] = popupTeacher
                         locationInfo[popupIndex] = popupLocation
@@ -160,7 +160,7 @@ struct ContentView: View {
         }
     }
 
-    
+//req 4: flex view    
     struct FlexViewSchedule: View {
         let scheduleTimes = [
             ("8:35 AM", "9:38 AM"),
@@ -229,7 +229,7 @@ struct ContentView: View {
                                         .foregroundColor(.white)
 
                                     Button(action: {
-                                        // Action to perform when the button is tapped
+                                       // button is tapped
                                         print("Update button tapped for hour \(index + 1)")
                                         showPopup = true
                                         popupIndex = index
@@ -247,7 +247,7 @@ struct ContentView: View {
                             }
                         }
                         .padding(.horizontal)
-                        Spacer(minLength: 200) // Add empty space at the bottom
+                        Spacer(minLength: 200) 
                     }
                 }
             }
@@ -262,7 +262,7 @@ struct ContentView: View {
                     TextField("Additional Notes", text: $popupNotes)
 
                     Button(action: {
-                        // Action to perform when the save button is tapped
+                        //  save button is tapped
                         classInfo[popupIndex] = popupClass
                         teacherInfo[popupIndex] = popupTeacher
                         locationInfo[popupIndex] = popupLocation
@@ -283,6 +283,7 @@ struct ContentView: View {
         }
     }
 
+//strectchreq: link page
     struct HelpfulLinksView: View {
         var body: some View {
             ScrollView {
@@ -295,13 +296,13 @@ struct ContentView: View {
                     LinkButton(title: "EPHS Student Life Calendar", url: "https://www.edenpr.org/eden-prairie-high-school/student-life/calendar")
                     LinkButton(title: "EPHS Career and Counseling Center", url: "https://www.edenpr.org/eden-prairie-high-school/student-life/career-counseling")
                     LinkButton(title: "EPHS News and Information", url: "https://www.edenpr.org/eden-prairie-high-school/student-life/news-information")
-                    // Add more links as needed
+                
                     
                     Spacer()
                 }
                 .padding(.horizontal)
             }
-            .background(Color.red) // Apply red background color to ScrollView
+            .background(Color.red) // red background color to ScrollView
         }
     }
 
@@ -326,14 +327,15 @@ struct ContentView: View {
             }
         }
     }
-    
+
+//req 1: intro screen
 struct IntroductionView: View {
     var body: some View {
         VStack {
-            Image("Logo") // Replace "your_image_name" with the actual name of your image asset
+            Image("Logo")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 200, height: 200) // Adjust the width and height to fit your desired size
+                .frame(width: 200, height: 200)
             
             Text("EPHS Schedule App")
                 .font(.largeTitle)
@@ -342,7 +344,7 @@ struct IntroductionView: View {
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                // Code to navigate to ContentView after 3 seconds
+                //contentview displays after 3 secs
             }
         }
     }
